@@ -13,7 +13,11 @@ repository = "https://github.com/smith61/tokio-stdio"
 readme     = "README.md"
 
 [dependencies]
+bytes = "0.4"
 futures = "0.1"
 futures_rb = { git = "https://github.com/smith61/futures_rb" }
 log = "0.3"
+tokio-io = "0.1"
 tokio-core = "0.1"
+tokio-proto = "0.1"
+tokio-service = "0.1"
