@@ -9,10 +9,13 @@ repository = "https://github.com/smith61/tokio-stdio"
 version = "0.1.0"
 
 [dependencies]
+bytes = "0.4"
 futures = "0.1"
 log = "0.3"
+tokio-io = "0.1"
 tokio-core = "0.1"
-tokio-io = "0.1.0"
+tokio-proto = "0.1"
+tokio-service = "0.1"
 
 [dependencies.futures_rb]
 git = "https://github.com/smith61/futures_rb"

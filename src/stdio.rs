@@ -4,9 +4,7 @@ use futures::{Async, Future, Poll};
 use futures_rb::rb;
 use std::{io, thread};
 use std::io::{Error, Read, Write};
-use tokio_core::io::Io;
 use tokio_io::{AsyncRead, AsyncWrite};
-use std::sync::atomic::AtomicBool;
 
 /// Type that implements tokio_core::io::Io for stdin/stdout streams
 pub struct Stdio {
@@ -65,17 +63,8 @@ impl Write for Stdio {
 impl AsyncWrite for Stdio {
     fn shutdown(&mut self) -> Poll<(), Error> {
         // TODO shutdown threads??
+        //self.flush()
         Ok(().into())
-    }
-}
-
-impl Io for Stdio {
-    fn poll_read(&mut self) -> Async<()> {
-        self.stdin_buffer_receiver.poll_read()
-    }
-
-    fn poll_write(&mut self) -> Async<()> {
-        self.stdout_buffer_sender.poll_write()
     }
 }
 
